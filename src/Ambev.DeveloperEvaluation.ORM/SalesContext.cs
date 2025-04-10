@@ -38,9 +38,13 @@ namespace Ambev.DeveloperEvaluation.ORM
 
             modelBuilder.Entity<SaleItem>(entity =>
             {
-                entity.HasKey(si => new { si.Product.Id, si.Quantity });
+                entity.HasKey(si => new { si.ProductId, si.Quantity });
                 entity.Property(si => si.Discount).HasColumnType("decimal(18,2)");
                 entity.Property(si => si.TotalAmount).HasColumnType("decimal(18,2)");
+
+                entity.HasOne(si => si.Product)
+                      .WithMany()
+                      .HasForeignKey(si => si.ProductId);
             });
         }
     }

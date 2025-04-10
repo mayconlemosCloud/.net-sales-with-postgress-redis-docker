@@ -2,7 +2,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 {
     public class Sale
     {
-        public int SaleNumber { get; set; }
+        public string SaleNumber { get; set; }
         public DateTime SaleDate { get; set; }
         public Customer Customer { get; set; }
         public decimal TotalAmount { get; set; }
