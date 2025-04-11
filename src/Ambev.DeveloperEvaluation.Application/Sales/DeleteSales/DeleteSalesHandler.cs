@@ -10,6 +10,8 @@ public class DeleteSalesHandler : IRequestHandler<DeleteSalesCommand, DeleteSale
     public async Task<DeleteSalesResponse> Handle(DeleteSalesCommand request, CancellationToken cancellationToken)
     {
         // Logic to handle the deletion of a sale
+        await Task.CompletedTask; // Explicitly mark as asynchronous
+
         return new DeleteSalesResponse
         {
             Success = true,

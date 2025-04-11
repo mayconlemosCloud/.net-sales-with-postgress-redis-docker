@@ -1,3 +1,6 @@
+using System.Security.Cryptography.X509Certificates;
+using Ambev.DeveloperEvaluation.Domain.Entities;
+
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSales;
 
 /// <summary>
@@ -6,8 +9,9 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSales;
 public class CreateSalesResponse
 {
     public Guid SaleId { get; set; }
-    public string ProductName { get; set; }
-    public int Quantity { get; set; }
-    public decimal Price { get; set; }
     public DateTime CreatedAt { get; set; }
+    public Guid CustomerId { get; set; }
+    public string? Branch { get; set; }
+    public decimal TotalAmount { get; set; }
+    public List<SaleItem> Items { get; set; } = new List<SaleItem>();
 }

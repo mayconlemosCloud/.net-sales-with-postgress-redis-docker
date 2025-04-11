@@ -19,8 +19,15 @@ namespace Ambev.DeveloperEvaluation.ORM
             modelBuilder.Entity<Sale>(entity =>
             {
                 entity.HasKey(s => s.Id);
-                entity.Property(s => s.TotalAmount).HasColumnType("decimal(18,2)");
+                entity.Property(s => s.TotalAmount)
+                      .HasColumnType("decimal(18,2)"); // Removed HasComputedColumnSql
                 entity.HasMany(s => s.Items).WithOne().OnDelete(DeleteBehavior.Cascade);
+
+                // Define the relationship with Customer
+                entity.HasOne(s => s.Customer)
+                      .WithMany()
+                      .HasForeignKey(s => s.CustomerId)
+                      .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -38,7 +45,7 @@ namespace Ambev.DeveloperEvaluation.ORM
 
             modelBuilder.Entity<SaleItem>(entity =>
             {
-                entity.HasKey(si => new { si.ProductId, si.Quantity });
+                entity.HasKey(si => new { si.Id });
                 entity.Property(si => si.Discount).HasColumnType("decimal(18,2)");
                 entity.Property(si => si.TotalAmount).HasColumnType("decimal(18,2)");
 

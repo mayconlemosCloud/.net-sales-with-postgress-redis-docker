@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Ambev.DeveloperEvaluation.ORM.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class SalesMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
@@ -27,7 +27,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     UnitPrice = table.Column<decimal>(type: "numeric(18,2)", nullable: false)
                 },
@@ -40,9 +40,9 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                 name: "Sales",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
-                    SaleDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CustomerId = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uuid", nullable: false),
                     TotalAmount = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
                     Branch = table.Column<string>(type: "text", nullable: false),
                     IsCancelled = table.Column<bool>(type: "boolean", nullable: false)
@@ -62,11 +62,11 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations
                 name: "SaleItems",
                 columns: table => new
                 {
-                    ProductId = table.Column<string>(type: "text", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uuid", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
                     Discount = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
                     TotalAmount = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
-                    SaleId = table.Column<string>(type: "text", nullable: true)
+                    SaleId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {

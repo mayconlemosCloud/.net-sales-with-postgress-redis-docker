@@ -8,6 +8,8 @@ using Ambev.DeveloperEvaluation.WebApi.Features.Sales.DeleteSales;
 using Ambev.DeveloperEvaluation.Application.Sales.CreateSales;
 using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
 using Ambev.DeveloperEvaluation.Application.Sales.DeleteSales;
+using Ambev.DeveloperEvaluation.Application.Sales.GetAllSales;
+using Ambev.DeveloperEvaluation.WebApi.Features.Sales.GetAllSales;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales;
 
@@ -85,6 +87,21 @@ public class SalesController : BaseController
         {
             Success = true,
             Message = "Sale deleted successfully"
+        });
+    }
+
+    [HttpGet]
+    [Route("api/sales")]
+    public async Task<IActionResult> GetAllSales(CancellationToken cancellationToken)
+    {
+        var query = new GetAllSalesQuery();
+        var response = await _mediator.Send(query, cancellationToken);
+
+        return Ok(new ApiResponseWithData<List<GetAllSalesResponse>>
+        {
+            Success = true,
+            Message = "Sales retrieved successfully",
+            Data = _mapper.Map<List<GetAllSalesResponse>>(response)
         });
     }
 }

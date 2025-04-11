@@ -1,3 +1,5 @@
+using Ambev.DeveloperEvaluation.Domain.Entities;
+
 namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSales;
 
 /// <summary>
@@ -6,8 +8,9 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSales;
 public class CreateSalesResult
 {
     public Guid SaleId { get; set; }
-    public string ProductName { get; set; }
-    public int Quantity { get; set; }
-    public decimal Price { get; set; }
     public DateTime CreatedAt { get; set; }
+    public Guid CustomerId { get; set; }
+    public string? Branch { get; set; }
+    public decimal TotalAmount { get; set; }
+    public List<SaleItem> Items { get; set; } = new List<SaleItem>();
 }
