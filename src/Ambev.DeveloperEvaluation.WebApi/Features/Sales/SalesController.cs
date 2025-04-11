@@ -10,6 +10,8 @@ using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
 using Ambev.DeveloperEvaluation.Application.Sales.DeleteSales;
 using Ambev.DeveloperEvaluation.Application.Sales.GetAllSales;
 using Ambev.DeveloperEvaluation.WebApi.Features.Sales.GetAllSales;
+using Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSales;
+using Ambev.DeveloperEvaluation.Application.Sales.UpdateSales;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales;
 
@@ -102,6 +104,21 @@ public class SalesController : BaseController
             Success = true,
             Message = "Sales retrieved successfully",
             Data = _mapper.Map<List<GetAllSalesResponse>>(response)
+        });
+    }
+
+    [HttpPut("{saleId}")]
+    public async Task<IActionResult> UpdateSale([FromRoute] Guid saleId, [FromBody] UpdateSalesRequest request, CancellationToken cancellationToken)
+    {
+        var command = _mapper.Map<UpdateSalesCommand>(request);
+        command.Id = saleId;
+
+        await _mediator.Send(command, cancellationToken);
+
+        return Ok(new ApiResponse
+        {
+            Success = true,
+            Message = "Sale updated successfully"
         });
     }
 }

@@ -3,7 +3,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     public class Sale
     {
         public Guid Id { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+
         public Guid CustomerId { get; set; }
         public Customer? Customer { get; set; }
         public decimal TotalAmount { get; set; }

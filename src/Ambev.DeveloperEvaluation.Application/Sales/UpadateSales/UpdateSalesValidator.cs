@@ -1,17 +1,16 @@
 using FluentValidation;
 
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales.CreateSales;
+namespace Ambev.DeveloperEvaluation.Application.Sales.UpdateSales;
 
 /// <summary>
-/// Validator for CreateSalesRequest
+/// Validator for UpdateSalesCommand
 /// </summary>
-public class CreateSalesRequestValidator : AbstractValidator<CreateSalesRequest>
+public class UpdateSalesValidator : AbstractValidator<UpdateSalesCommand>
 {
-    public CreateSalesRequestValidator()
+    public UpdateSalesValidator()
     {
-        RuleFor(x => x.CustomerId).NotEmpty().WithMessage("Customer ID is required.");
         RuleFor(x => x.Branch).NotEmpty().WithMessage("Branch is required.");
-        RuleFor(x => x.Items).NotEmpty().WithMessage("At least one item is required.");
+        RuleFor(x => x.Id).NotEmpty().WithMessage("Sale ID is required.");
         RuleForEach(x => x.Items).ChildRules(items =>
         {
             items.RuleFor(i => i.ProductId).NotEmpty().WithMessage("Product ID is required.");
