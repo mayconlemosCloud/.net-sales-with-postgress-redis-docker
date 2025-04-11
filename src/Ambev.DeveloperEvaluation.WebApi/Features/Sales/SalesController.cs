@@ -49,17 +49,17 @@ public class SalesController : BaseController
         });
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetSale([FromRoute] Guid id, CancellationToken cancellationToken)
+    [HttpGet("{saleId}")]
+    public async Task<IActionResult> GetSale([FromRoute] Guid saleId, CancellationToken cancellationToken)
     {
-        var request = new GetSalesRequest { SaleId = id };
+        var request = new GetSalesRequest { SaleId = saleId };
         var validator = new GetSalesRequestValidator();
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
         if (!validationResult.IsValid)
             return BadRequest(validationResult.Errors);
 
-        var command = _mapper.Map<GetSalesCommand>(request.SaleId);
+        var command = new GetSalesCommand { SaleId = request.SaleId };
         var response = await _mediator.Send(command, cancellationToken);
 
         return Ok(new ApiResponseWithData<GetSalesResponse>
@@ -70,17 +70,17 @@ public class SalesController : BaseController
         });
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteSale([FromRoute] Guid id, CancellationToken cancellationToken)
+    [HttpDelete("{saleId}")]
+    public async Task<IActionResult> DeleteSale([FromRoute] Guid saleId, CancellationToken cancellationToken)
     {
-        var request = new DeleteSalesRequest { SaleId = id };
+        var request = new DeleteSalesRequest { SaleId = saleId };
         var validator = new DeleteSalesRequestValidator();
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
         if (!validationResult.IsValid)
             return BadRequest(validationResult.Errors);
 
-        var command = _mapper.Map<DeleteSalesCommand>(request.SaleId);
+        var command = new DeleteSalesCommand { SaleId = request.SaleId };
         await _mediator.Send(command, cancellationToken);
 
         return Ok(new ApiResponse
