@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Ambev.DeveloperEvaluation.ORM.Migrations.Sales
+namespace Ambev.DeveloperEvaluation.ORM.Migrations
 {
     [DbContext(typeof(SalesContext))]
-    [Migration("20250410200337_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250411011925_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,7 +60,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations.Sales
 
             modelBuilder.Entity("Ambev.DeveloperEvaluation.Domain.Entities.Sale", b =>
                 {
-                    b.Property<string>("SaleNumber")
+                    b.Property<string>("Id")
                         .HasColumnType("text");
 
                     b.Property<string>("Branch")
@@ -80,7 +80,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations.Sales
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("SaleNumber");
+                    b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
@@ -98,7 +98,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations.Sales
                     b.Property<decimal>("Discount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("SaleNumber")
+                    b.Property<string>("SaleId")
                         .HasColumnType("text");
 
                     b.Property<decimal>("TotalAmount")
@@ -106,7 +106,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations.Sales
 
                     b.HasKey("ProductId", "Quantity");
 
-                    b.HasIndex("SaleNumber");
+                    b.HasIndex("SaleId");
 
                     b.ToTable("SaleItems");
                 });
@@ -132,7 +132,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Migrations.Sales
 
                     b.HasOne("Ambev.DeveloperEvaluation.Domain.Entities.Sale", null)
                         .WithMany("Items")
-                        .HasForeignKey("SaleNumber")
+                        .HasForeignKey("SaleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Product");

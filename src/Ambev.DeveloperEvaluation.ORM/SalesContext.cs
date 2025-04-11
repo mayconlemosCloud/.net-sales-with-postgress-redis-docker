@@ -18,7 +18,7 @@ namespace Ambev.DeveloperEvaluation.ORM
 
             modelBuilder.Entity<Sale>(entity =>
             {
-                entity.HasKey(s => s.SaleNumber);
+                entity.HasKey(s => s.Id);
                 entity.Property(s => s.TotalAmount).HasColumnType("decimal(18,2)");
                 entity.HasMany(s => s.Items).WithOne().OnDelete(DeleteBehavior.Cascade);
             });
