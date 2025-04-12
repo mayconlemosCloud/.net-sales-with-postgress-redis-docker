@@ -1,36 +1,36 @@
-2025-04-12 16:22:31.630 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (44ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:25.949 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (35ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT EXISTS (
     SELECT 1 FROM pg_catalog.pg_class c
     JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
     WHERE n.nspname='public' AND
           c.relname='__EFMigrationsHistory'
 )
-2025-04-12 16:22:31.678 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:25.988 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT EXISTS (
     SELECT 1 FROM pg_catalog.pg_class c
     JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
     WHERE n.nspname='public' AND
           c.relname='__EFMigrationsHistory'
 )
-2025-04-12 16:22:31.742 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.051 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE TABLE "__EFMigrationsHistory" (
     "MigrationId" character varying(150) NOT NULL,
     "ProductVersion" character varying(32) NOT NULL,
     CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
 );
-2025-04-12 16:22:31.747 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.057 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT EXISTS (
     SELECT 1 FROM pg_catalog.pg_class c
     JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
     WHERE n.nspname='public' AND
           c.relname='__EFMigrationsHistory'
 )
-2025-04-12 16:22:31.749 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.060 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT "MigrationId", "ProductVersion"
 FROM "__EFMigrationsHistory"
 ORDER BY "MigrationId";
-2025-04-12 16:22:31.759 +00:00 [INF] Microsoft.EntityFrameworkCore.Migrations Applying migration '20250412161258_init'.
-2025-04-12 16:22:31.777 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.069 +00:00 [INF] Microsoft.EntityFrameworkCore.Migrations Applying migration '20250412161258_init'.
+2025-04-12 17:08:26.088 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE TABLE "Users" (
     "Id" uuid NOT NULL DEFAULT (gen_random_uuid()),
     "Username" character varying(50) NOT NULL,
@@ -43,53 +43,53 @@ CREATE TABLE "Users" (
     "UpdatedAt" timestamp with time zone,
     CONSTRAINT "PK_Users" PRIMARY KEY ("Id")
 );
-2025-04-12 16:22:31.778 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.089 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
 VALUES ('20250412161258_init', '8.0.10');
-2025-04-12 16:22:31.906 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.219 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT EXISTS (
     SELECT 1 FROM pg_catalog.pg_class c
     JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
     WHERE n.nspname='public' AND
           c.relname='__EFMigrationsHistory'
 )
-2025-04-12 16:22:31.908 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.221 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT "MigrationId", "ProductVersion"
 FROM "__EFMigrationsHistory"
 ORDER BY "MigrationId";
-2025-04-12 16:22:31.916 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.228 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT EXISTS (
     SELECT 1 FROM pg_catalog.pg_class c
     JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
     WHERE n.nspname='public' AND
           c.relname='__EFMigrationsHistory'
 )
-2025-04-12 16:22:31.922 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.232 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT EXISTS (
     SELECT 1 FROM pg_catalog.pg_class c
     JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
     WHERE n.nspname='public' AND
           c.relname='__EFMigrationsHistory'
 )
-2025-04-12 16:22:31.922 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.232 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT "MigrationId", "ProductVersion"
 FROM "__EFMigrationsHistory"
 ORDER BY "MigrationId";
-2025-04-12 16:22:31.923 +00:00 [INF] Microsoft.EntityFrameworkCore.Migrations Applying migration '20250412160939_init'.
-2025-04-12 16:22:31.940 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.233 +00:00 [INF] Microsoft.EntityFrameworkCore.Migrations Applying migration '20250412160939_init'.
+2025-04-12 17:08:26.254 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE TABLE "Customers" (
     "Id" uuid NOT NULL,
     "Name" character varying(100) NOT NULL,
     CONSTRAINT "PK_Customers" PRIMARY KEY ("Id")
 );
-2025-04-12 16:22:31.944 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.260 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE TABLE "Products" (
     "Id" uuid NOT NULL,
     "Name" character varying(100) NOT NULL,
     "UnitPrice" numeric(18,2) NOT NULL,
     CONSTRAINT "PK_Products" PRIMARY KEY ("Id")
 );
-2025-04-12 16:22:31.957 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.273 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE TABLE "Sales" (
     "Id" uuid NOT NULL,
     "CreatedAt" timestamp with time zone,
@@ -102,7 +102,7 @@ CREATE TABLE "Sales" (
     CONSTRAINT "PK_Sales" PRIMARY KEY ("Id"),
     CONSTRAINT "FK_Sales_Customers_CustomerId" FOREIGN KEY ("CustomerId") REFERENCES "Customers" ("Id") ON DELETE RESTRICT
 );
-2025-04-12 16:22:31.963 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.277 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE TABLE "SaleItems" (
     "Id" uuid NOT NULL,
     "ProductId" uuid NOT NULL,
@@ -112,18 +112,24 @@ CREATE TABLE "SaleItems" (
     CONSTRAINT "FK_SaleItems_Products_ProductId" FOREIGN KEY ("ProductId") REFERENCES "Products" ("Id") ON DELETE CASCADE,
     CONSTRAINT "FK_SaleItems_Sales_SaleId" FOREIGN KEY ("SaleId") REFERENCES "Sales" ("Id") ON DELETE CASCADE
 );
-2025-04-12 16:22:31.966 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.282 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE INDEX "IX_SaleItems_ProductId" ON "SaleItems" ("ProductId");
-2025-04-12 16:22:31.970 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.287 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE INDEX "IX_SaleItems_SaleId" ON "SaleItems" ("SaleId");
-2025-04-12 16:22:31.977 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.290 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 CREATE INDEX "IX_Sales_CustomerId" ON "Sales" ("CustomerId");
-2025-04-12 16:22:31.978 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2025-04-12 17:08:26.291 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
 VALUES ('20250412160939_init', '8.0.10');
-2025-04-12 16:22:32.002 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
-2025-04-12 16:22:32.068 +00:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager Creating key {319952b4-5f69-451d-84d1-d977e399239e} with creation date 2025-04-12 16:22:32Z, activation date 2025-04-12 16:22:32Z, and expiration date 2025-07-11 16:22:32Z.
-2025-04-12 16:22:32.124 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
-2025-04-12 16:22:32.125 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
-2025-04-12 16:22:32.128 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
-2025-04-12 16:22:32.128 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-12 17:08:26.313 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-12 17:08:26.377 +00:00 [INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager Creating key {26e23212-50cd-4a9b-8b8a-60307d39adb0} with creation date 2025-04-12 17:08:26Z, activation date 2025-04-12 17:08:26Z, and expiration date 2025-07-11 17:08:26Z.
+2025-04-12 17:08:26.433 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-12 17:08:26.433 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-12 17:08:26.436 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-12 17:08:26.436 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-12 17:08:52.841 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/index.html - null null
+2025-04-12 17:08:52.895 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/index.html - 200 null text/html;charset=utf-8 54.5703ms
+2025-04-12 17:08:52.929 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/index.js - null null
+2025-04-12 17:08:52.932 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/index.js - 200 null application/javascript;charset=utf-8 3.3897ms
+2025-04-12 17:08:53.060 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json - null null
+2025-04-12 17:08:53.207 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 146.1304ms

@@ -104,4 +104,23 @@ public class CreateSalesValidatorTests
         var result = _validator.TestValidate(command);
         result.ShouldHaveValidationErrorFor("Items[0].Quantity");
     }
+
+    [Fact]
+    public void Validate_ExceedingItemQuantity_ShouldFail()
+    {
+        // Arrange
+        var command = new CreateSalesCommand
+        {
+            CustomerId = Guid.NewGuid(),
+            Branch = "Test Branch",
+            Items = new List<CreateSalesItemCommand>
+            {
+                new CreateSalesItemCommand { ProductId = Guid.NewGuid(), Quantity = 21 }
+            }
+        };
+
+        // Act & Assert
+        var result = _validator.TestValidate(command);
+        result.ShouldHaveValidationErrorFor("Items[0].Quantity");
+    }
 }

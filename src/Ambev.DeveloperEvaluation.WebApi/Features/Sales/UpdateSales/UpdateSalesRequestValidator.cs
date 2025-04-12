@@ -15,6 +15,7 @@ public class UpdateSalesRequestValidator : AbstractValidator<UpdateSalesRequest>
         {
             items.RuleFor(i => i.ProductId).NotEmpty().WithMessage("Product ID is required.");
             items.RuleFor(i => i.Quantity).GreaterThan(0).WithMessage("Quantity must be greater than zero.");
+            items.RuleFor(i => i.Quantity).LessThanOrEqualTo(20).WithMessage("Quantity must be less than or equal to 20.");
         });
     }
 }

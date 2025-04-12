@@ -16,6 +16,7 @@ public class CreateSalesRequestValidator : AbstractValidator<CreateSalesRequest>
         {
             items.RuleFor(i => i.ProductId).NotEmpty().WithMessage("Product ID is required.");
             items.RuleFor(i => i.Quantity).GreaterThan(0).WithMessage("Quantity must be greater than zero.");
+            items.RuleFor(i => i.Quantity).LessThanOrEqualTo(20).WithMessage("Cannot sell more than 20 identical items.");
         });
     }
 }
