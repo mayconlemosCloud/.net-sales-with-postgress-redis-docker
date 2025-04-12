@@ -62,6 +62,16 @@ public class Program
             var app = builder.Build();
             app.UseMiddleware<ValidationExceptionMiddleware>();
 
+            // Apply pending migrations automatically
+            using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<DefaultContext>();
+                dbContext.Database.Migrate();
+
+                var salesContext = scope.ServiceProvider.GetRequiredService<SalesContext>();
+                salesContext.Database.Migrate();
+            }
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
