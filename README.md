@@ -30,6 +30,14 @@ Este projeto foi projetado para rodar em um ambiente Dockerizado, facilitando a 
 
 - Os IDs das tabelas `Products` e `Customers` são exibidos durante a execução do script para sua referência.
 
+### Acesso ao Swagger
+
+Para acessar a documentação interativa da API via Swagger, utilize o seguinte link após iniciar a aplicação:
+
+```
+http://localhost:8080/swagger
+```
+
 ### Rodando a Aplicação
 Após configurar o banco de dados, você pode rodar a aplicação executando os comandos apropriados ou utilizando sua IDE preferida para iniciar o projeto.
 
