@@ -45,6 +45,9 @@ public class UpdateSalesHandler : IRequestHandler<UpdateSalesCommand, UpdateSale
         var allProducts = await _productRepository.GetAllAsync();
 
 
+        decimal totalDiscount = 0;
+
+
         salesEntity.TotalAmount = request.Items.Sum(item =>
         {
             var product = allProducts.FirstOrDefault(p => p.Id == item.ProductId);
@@ -53,8 +56,27 @@ public class UpdateSalesHandler : IRequestHandler<UpdateSalesCommand, UpdateSale
                 throw new Exception($"Product with ID {item.ProductId} not found.");
             }
 
-            return item.Quantity * product.UnitPrice;
+            var itemTotal = item.Quantity * product.UnitPrice;
+            decimal itemDiscount = 0;
+
+            // Aplica descontos
+            if (item.Quantity > 4 && item.Quantity < 10)
+            {
+                itemDiscount = itemTotal * 0.1m; // 10% de desconto
+                itemTotal -= itemDiscount;
+            }
+            else if (item.Quantity >= 10 && item.Quantity <= 20)
+            {
+                itemDiscount = itemTotal * 0.2m; // 20% de desconto
+                itemTotal -= itemDiscount;
+            }
+
+            totalDiscount += itemDiscount;
+            return itemTotal;
         });
+
+
+        salesEntity.Discount = totalDiscount;
 
         _mapper.Map(request, salesEntity);
 

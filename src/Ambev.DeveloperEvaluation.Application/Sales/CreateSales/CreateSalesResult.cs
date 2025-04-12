@@ -12,5 +12,6 @@ public class CreateSalesResult
     public Guid CustomerId { get; set; }
     public string? Branch { get; set; }
     public decimal TotalAmount { get; set; }
+    public decimal Discount { get; set; }
     public List<SaleItem> Items { get; set; } = new List<SaleItem>();
 }
