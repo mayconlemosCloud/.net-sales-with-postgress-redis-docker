@@ -12,6 +12,7 @@ using Ambev.DeveloperEvaluation.Application.Sales.GetAllSales;
 using Ambev.DeveloperEvaluation.WebApi.Features.Sales.GetAllSales;
 using Ambev.DeveloperEvaluation.WebApi.Features.Sales.UpdateSales;
 using Ambev.DeveloperEvaluation.Application.Sales.UpdateSales;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales;
 
@@ -20,6 +21,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales;
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class SalesController : BaseController
 {
     private readonly IMediator _mediator;

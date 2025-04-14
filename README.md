@@ -22,6 +22,10 @@ Este projeto foi projetado para rodar em um ambiente Dockerizado, facilitando a 
 
 3. Após a conclusão do script, o banco de dados estará pronto e você poderá prosseguir para rodar a aplicação.
 
+### Executando Migrations
+
+Após configurar o banco de dados, é necessário executar as migrations para garantir que o esquema do banco de dados esteja atualizado.
+
 ### Informações Adicionais
 - O script `run-database-setup.bat` simplifica o processo de configuração automatizando as seguintes tarefas:
   - Inicialização dos containers Docker.
@@ -40,6 +44,30 @@ http://localhost:8080/swagger
 
 ### Rodando a Aplicação
 Após configurar o banco de dados, você pode rodar a aplicação executando os comandos apropriados ou utilizando sua IDE preferida para iniciar o projeto.
+
+### Exemplo de Requisição para Criar uma Venda
+
+Você pode criar uma venda utilizando o seguinte comando `curl`:
+
+```
+curl -X 'POST' \
+  'http://localhost:5119/api/Sales' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer \' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "createdAt": "2025-04-14T00:28:09.211Z",
+  "customerId": "04c6ecec-8594-437d-b954-b4c2ed83fbba",
+  "branch": "string",
+  "items": [
+    {
+      "productId": "7d6f1e92-74fb-4ba7-be74-0d19d64de152",
+      "quantity": 3
+    }
+  ],
+  "isCancelled": false
+}'
+```
 
 Para quaisquer problemas ou dúvidas, consulte o README do projeto ou entre em contato com a equipe de desenvolvimento.
 
